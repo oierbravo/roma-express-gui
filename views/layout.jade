@@ -1,0 +1,34 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    style(type='text/css')
+      body{padding-top: 60px;}
+  body
+    div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.container
+          a.brand(href="#") ROMA
+          div.nav-collapse.collapse
+            ul.nav
+              li.active
+                a(href='#') Home
+              li
+                a(href='#devices') Devices
+              li
+                a(href='#routes') Routes
+    div#main.container
+      block content
+      div#roma-devices
+        div#roma-devices-wrapper
+          ul#device-list
+      div#roma-routes
+        div#roma-routes-wrapper
+          ul#routes-list
+
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.js')
+    script(src='/js/underscore.js')
+    script(src='/js/backbone.js')
+    script(src='/js/backbone-app.js')
