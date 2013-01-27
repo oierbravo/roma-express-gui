@@ -21,6 +21,7 @@ html
     div#main.container
       block content
       div#roma-devices
+        a(href="#addDeviceModal",role="button",class='btn',data-toggle='modal') Add device
         div#roma-devices-wrapper
           ul#device-list
       div#roma-routes
@@ -31,4 +32,34 @@ html
     script(src='/js/bootstrap.js')
     script(src='/js/underscore.js')
     script(src='/js/backbone.js')
+    script(src='/js/romaDeviceModel.js')
+    script(src='/js/romaDeviceCollection.js')
+    script(src='/js/romaDeviceView.js')
+    script(src='/js/romaDevicesView.js')
+
+    script(src='/js/romaRouteModel.js')
+    script(src='/js/romaRouteCollection.js')
+    script(src='/js/romaRouteView.js')
+    script(src='/js/romaRoutesView.js')
     script(src='/js/backbone-app.js')
+    script(type='text/template',id='device-template')
+      <div class="device-item">
+      <div class="device-id"> <%- id %> </div>
+      <div class="device-info">
+      <span class="device-info-fromport"> <%- fromPort %> </span>
+      <span class="device-info-toport"> <%- toPort %> </span>
+      </div>
+      </div>
+    <!-- Modal -->
+    div#addDeviceModal(class='modal hide fade',tabindex='-1',role='dialog',aria-labelledby='addDeviceModal',aria-hidden='true')
+      form#addDeviceForm(action='#addDevice')
+        div.modal-header
+          button.close(type='button',data-dismiss='modal',aria-hidden='true') x
+          h3#addDeviceLabel Add device
+        div.modal-body
+          input(type='text',class='input-block-level',placeholder='ID')
+          input(type='text',class='input-block-level',placeholder='Host')
+
+        div.modal-footer
+          button.btn(data-dismiss='modal', aria-hidden='true') Close
+          button.btn.btn-primary(type='submit') Add device
